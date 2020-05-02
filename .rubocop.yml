@@ -8,3 +8,6 @@ AllCops:
   NewCops: enable
   Exclude:
     - 'test/dummy/db/schema.rb'
+
+Metrics:
+  Enabled: false
