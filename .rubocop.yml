@@ -6,3 +6,5 @@ Style/Documentation:
 
 AllCops:
   NewCops: enable
+  Exclude:
+    - 'test/dummy/db/schema.rb'
