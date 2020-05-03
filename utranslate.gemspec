@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.version     = Utranslate::VERSION
   spec.authors     = ['jcollazos']
   spec.email       = ['julianjaviercollazos@gmail.com']
-  spec.homepage    = 'https://rubygems.org/gems/utranslate'
+  spec.homepage    = 'https://github.com/klatooine/utranslate'
   spec.summary     = 'A simple model translation gem.'
   spec.description = 'A simple model translation gem using postgresql JSONB columns'
   spec.license     = 'MIT'
