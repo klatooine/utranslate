@@ -15,6 +15,8 @@ module Utranslate
       raise Utranslate::InvalidFormatError, "ERROR: #{attr_name} not a valid JSONB column." unless type_for_attribute(attr_name).type == :jsonb
 
       validates :"#{attr_name}",
+                "Utranslate::Hash": true
+      validates :"#{attr_name}",
                 "Utranslate::AllTranslations": { locales: locales },
                 unless: -> { null }
 

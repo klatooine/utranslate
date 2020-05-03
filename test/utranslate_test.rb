@@ -110,5 +110,16 @@ module Utranslate
       assert_not post.valid?
       assert post.errors[:title].present?
     end
+
+    test '#translate should add a format validation for translated column' do
+      Post.class_eval do
+        translate :title, null: false
+      end
+
+      post = Post.new(title: 'test')
+
+      assert_not post.valid?
+      assert post.errors[:title].present?
+    end
   end
 end
