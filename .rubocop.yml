@@ -11,3 +11,6 @@ AllCops:
 
 Metrics:
   Enabled: false
+
+Naming/MemoizedInstanceVariableName:
+  EnforcedStyleForLeadingUnderscores: required

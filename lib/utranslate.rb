@@ -3,14 +3,20 @@
 require 'utranslate/railtie'
 require 'utranslate/errors/column_not_present_error'
 require 'utranslate/errors/invalid_format_error'
+require 'utranslate/validators/all_translations_validator'
+require 'utranslate/validators/hash_validator'
 
 module Utranslate
   extend ActiveSupport::Concern
 
   class_methods do
-    def translate(attr_name)
+    def translate(attr_name, null: true, locales: I18n.available_locales)
       raise Utranslate::ColumnNotPresentError, "ERROR: #{attr_name} not present in #{name}." unless column_names.include?(attr_name.to_s)
       raise Utranslate::InvalidFormatError, "ERROR: #{attr_name} not a valid JSONB column." unless type_for_attribute(attr_name).type == :jsonb
+
+      validates :"#{attr_name}",
+                "Utranslate::AllTranslations": { locales: locales },
+                unless: -> { null }
 
       define_method "utranslate_#{attr_name}" do |locale, value|
         self[:"#{attr_name}"][locale.to_s] = value

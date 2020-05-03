@@ -80,5 +80,35 @@ module Utranslate
 
       assert post[:title].is_a?(Hash)
     end
+
+    test '#translate accepts to activate a validator to check for presence of available locales' do
+      Post.class_eval do
+        translate :title, null: false
+      end
+
+      title = 'utranslation'
+
+      post = Post.new
+
+      post.title(:es, title)
+
+      assert_not post.valid?
+      assert post.errors[:title].present?
+    end
+
+    test '#translate accepts to activate a validator to check for presence of given locales' do
+      Post.class_eval do
+        translate :title, null: false, locales: [:es]
+      end
+
+      title = 'utranslation'
+
+      post = Post.new
+
+      post.title = title
+
+      assert_not post.valid?
+      assert post.errors[:title].present?
+    end
   end
 end
