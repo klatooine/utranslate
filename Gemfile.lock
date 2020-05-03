@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    utranslate (0.1.1)
+    utranslate (0.1.2)
       rails (~> 6.0.2, >= 6.0.2.2)
 
 GEM
