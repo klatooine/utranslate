@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     utranslate (0.1.2)
-      rails (~> 6.0.2, >= 6.0.2.2)
+      rails (>= 6.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -164,4 +164,4 @@ DEPENDENCIES
   utranslate!
 
 BUNDLED WITH
-   2.1.4
+   2.2.15
